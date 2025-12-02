@@ -43,3 +43,25 @@ A Java console application for tracking community health records using JDBC and 
 - ✅ MySQL database integration
 
 ## 🏗️ Project Structure
+Community-Health-Tracking-JDBC/
+├── src/ # Java source files
+├── sql/ # Database scripts
+├── docs/ # Project documentation
+├── screenshots/ # Application screenshots
+├── lib/ # External libraries
+├── README.md # This file
+└── .gitignore # Git ignore file
+
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Java JDK 8 or higher
+- MySQL 8.0 or higher
+- MySQL Connector/J
+
+### Installation
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/krishkumar1526/Community-Health-Tracking-JDBC.git
+   cd Community-Health-Tracking-JDBC
