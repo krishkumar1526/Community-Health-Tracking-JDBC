@@ -1,0 +1,49 @@
+@echo off
+echo ==========================================
+echo   Community Health System - Compile & Run
+echo ==========================================
+echo.
+
+REM Check if MySQL connector exists
+if not exist "lib\mysql-connector-j-8.0.33.jar" (
+    echo ERROR: MySQL Connector not found!
+    echo.
+    echo Please download from:
+    echo https://dev.mysql.com/downloads/connector/j/
+    echo.
+    echo Save to: lib\mysql-connector-j-8.0.33.jar
+    echo.
+    pause
+    exit /b 1
+)
+
+REM Check if source files exist
+if not exist "src\DBConnection.java" (
+    echo ERROR: Source files not found!
+    echo Run create_files.bat first
+    pause
+    exit /b 1
+)
+
+REM Compile
+echo Step 1: Compiling Java files...
+javac -cp "lib\mysql-connector-j-8.0.33.jar" src\*.java
+
+if errorlevel 1 (
+    echo.
+    echo COMPILATION FAILED!
+    echo Check:
+    echo 1. Java JDK is installed (java -version)
+    echo 2. MySQL password is correct in DBConnection.java
+    echo.
+    pause
+    exit /b 1
+)
+
+echo.
+echo Step 2: Running application...
+echo.
+java -cp "src;lib\mysql-connector-j-8.0.33.jar" MainApp
+
+echo.
+pause

@@ -1,0 +1,87 @@
+@echo off
+echo ==========================================
+echo   Creating Java Source Files
+echo ==========================================
+echo.
+
+REM Create DBConnection.java
+echo package src; > src\DBConnection.java
+echo. >> src\DBConnection.java
+echo import java.sql.Connection; >> src\DBConnection.java
+echo import java.sql.DriverManager; >> src\DBConnection.java
+echo import java.sql.SQLException; >> src\DBConnection.java
+echo. >> src\DBConnection.java
+echo public class DBConnection { >> src\DBConnection.java
+echo     private static final String URL = "jdbc:mysql://localhost:3306/community_health"; >> src\DBConnection.java
+echo     private static final String USER = "root"; >> src\DBConnection.java
+echo     private static final String PASSWORD = "yourpassword"; // CHANGE THIS >> src\DBConnection.java
+echo. >> src\DBConnection.java
+echo     public static Connection getConnection() { >> src\DBConnection.java
+echo         try { >> src\DBConnection.java
+echo             Class.forName("com.mysql.cj.jdbc.Driver"); >> src\DBConnection.java
+echo             Connection conn = DriverManager.getConnection(URL, USER, PASSWORD); >> src\DBConnection.java
+echo             return conn; >> src\DBConnection.java
+echo         } catch (ClassNotFoundException ^| SQLException e) { >> src\DBConnection.java
+echo             System.out.println("Database connection failed: " + e.getMessage()); >> src\DBConnection.java
+echo             return null; >> src\DBConnection.java
+echo         } >> src\DBConnection.java
+echo     } >> src\DBConnection.java
+echo. >> src\DBConnection.java
+echo     public static void closeConnection(Connection conn) { >> src\DBConnection.java
+echo         if (conn != null) { >> src\DBConnection.java
+echo             try { >> src\DBConnection.java
+echo                 conn.close(); >> src\DBConnection.java
+echo             } catch (SQLException e) { >> src\DBConnection.java
+echo                 System.out.println("Error closing connection: " + e.getMessage()); >> src\DBConnection.java
+echo             } >> src\DBConnection.java
+echo         } >> src\DBConnection.java
+echo     } >> src\DBConnection.java
+echo } >> src\DBConnection.java
+echo Created DBConnection.java
+
+REM Create ResidentDAO.java
+echo package src; > src\ResidentDAO.java
+echo. >> src\ResidentDAO.java
+echo import java.sql.*; >> src\ResidentDAO.java
+echo import java.util.Scanner; >> src\ResidentDAO.java
+echo. >> src\ResidentDAO.java
+echo public class ResidentDAO { >> src\ResidentDAO.java
+echo     public void addResident() { >> src\ResidentDAO.java
+echo         System.out.println("Adding resident..."); >> src\ResidentDAO.java
+echo     } >> src\ResidentDAO.java
+echo. >> src\ResidentDAO.java
+echo     public void viewAllResidents() { >> src\ResidentDAO.java
+echo         System.out.println("Viewing residents..."); >> src\ResidentDAO.java
+echo     } >> src\ResidentDAO.java
+echo } >> src\ResidentDAO.java
+echo Created ResidentDAO.java
+
+REM Create MainApp.java
+echo package src; > src\MainApp.java
+echo. >> src\MainApp.java
+echo import java.util.Scanner; >> src\MainApp.java
+echo. >> src\MainApp.java
+echo public class MainApp { >> src\MainApp.java
+echo     public static void main(String[] args) { >> src\MainApp.java
+echo         System.out.println("Community Health System Started!"); >> src\MainApp.java
+echo         System.out.println("Testing database connection..."); >> src\MainApp.java
+echo. >> src\MainApp.java
+echo         if (DBConnection.getConnection() != null) { >> src\MainApp.java
+echo             System.out.println("Database connection successful!"); >> src\MainApp.java
+echo         } else { >> src\MainApp.java
+echo             System.out.println("Database connection failed."); >> src\MainApp.java
+echo         } >> src\MainApp.java
+echo. >> src\MainApp.java
+echo         ResidentDAO dao = new ResidentDAO(); >> src\MainApp.java
+echo         dao.addResident(); >> src\MainApp.java
+echo         dao.viewAllResidents(); >> src\MainApp.java
+echo     } >> src\MainApp.java
+echo } >> src\MainApp.java
+echo Created MainApp.java
+
+echo.
+echo ==========================================
+echo Basic files created successfully!
+echo Next: Edit DBConnection.java with your MySQL password
+echo ==========================================
+pause
