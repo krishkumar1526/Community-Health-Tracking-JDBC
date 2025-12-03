@@ -18,30 +18,55 @@ A Java console application for tracking community health records using JDBC and 
 - ✅ **Sample Data** - Pre-populated database for testing
 
 ## 🏗️ Project Structure
+
 Community-Health-Tracking-JDBC/
+
 ├── src/ # Java source files (6 modules)
+
 │ ├── DBConnection.java # Database connectivity
+
 │ ├── ResidentDAO.java # Resident operations
+
 │ ├── HealthCheckupDAO.java # Health checkup operations
+
 │ ├── VaccinationDAO.java # Vaccination operations
+
 │ ├── ReportGenerator.java # Report generation
+
 │ └── MainApp.java # Main menu system
+
 ├── sql/ # Database scripts
+
 │ └── database_setup.sql # Database creation with sample data
+
 ├── docs/ # Project documentation
+
 │ └── Project_Report.pdf # Complete project report
+
 ├── screenshots/ # Application screenshots
+
 │ ├── main_menu.png # Main menu interface
+
 │ ├── resident_management.png
+
 │ ├── health_checkups.png
+
 │ ├── vaccinations.png
+
 │ ├── report.png
+
 │ └── compilation_success.png
+
 ├── lib/ # External libraries
+
 │ └── mysql-connector-j-9.5.0.jar
+
 ├── run.bat # Windows run script
+
 ├── compilation_screenshot.bat
+
 ├── README.md # This file
+
 └── .gitignore # Git ignore file
 
 
@@ -112,12 +137,17 @@ Generate health reports
 
 📸 Screenshots
 Feature	Screenshot
-Main Menu	https://screenshots/main_menu.png
-Resident Management	https://screenshots/resident_management.png
-Health Checkups	https://screenshots/health_checkups.png
-Vaccination Records	https://screenshots/vaccinations.png
-Health Report	https://screenshots/report.png
-Compilation Success	https://screenshots/compilation_success.png
+Main Menu:	https://screenshots/main_menu.png
+
+Resident Management:	https://screenshots/resident_management.png
+
+Health Checkups:	https://screenshots/health_checkups.png
+
+Vaccination Records:	https://screenshots/vaccinations.png
+
+Health Report:	https://screenshots/report.png
+
+Compilation Success:	https://screenshots/compilation_success.png
 
 🛠️ Technical Implementation
 
